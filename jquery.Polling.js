@@ -1,13 +1,18 @@
-/*
- * Lightweight polling system based on jQuery.Callbacks and jQuery.Deferred.
+/*!
+ * jQuery Polling Plugin v0.1
+ * https://github.com/riga/jquery.Polling
+ *
+ * Copyright 2012, Marcel Rieger
+ * Dual licensed under the MIT or GPL Version 3 licenses.
+ * http://www.opensource.org/licenses/mit-license
+ * http://www.opensource.org/licenses/GPL-3.0
  */
 
-var _pollings = {};
+var _polling = {};
 
 jQuery.Polling = function( /*String|Integer*/ id ) {
-	// instantiated on every call
 	
-	var self = id && _pollings[ id ];
+	var self = id && _polling[ id ];
 	
 	if ( !self ) {
 		// callbacks store
@@ -198,7 +203,7 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 		};
 		
 		if ( id ) {
-			_pollings[ id ] = self;
+			_polling[ id ] = self;
 		}
 	}
 	
