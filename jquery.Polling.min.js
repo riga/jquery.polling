@@ -1,6 +1,6 @@
 /*!
  * jQuery Polling Plugin v0.1
- * https://github.com/riga/jquery.Polling
+ * https://github.com/riga/jquery.polling
  *
  * Copyright 2012, Marcel Rieger
  * Dual licensed under the MIT or GPL Version 3 licenses.

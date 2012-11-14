@@ -1,4 +1,4 @@
-jquery.Polling
+jquery.polling
 ==============
 
 Todo
