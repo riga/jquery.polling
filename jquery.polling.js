@@ -48,7 +48,9 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 			if ( arguments.length > 0 ) {
 				_callbacks = jQuery.merge( _callbacks, arguments );
 				// autorun?
-				_config.autoRun && run();
+				if ( _config.autoRun ) {
+					self.run();
+				}
 			}
 			return this;
 		},
