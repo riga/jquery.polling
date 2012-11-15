@@ -1,5 +1,5 @@
 /*!
- * jQuery Polling Plugin v0.1
+ * jQuery Polling Plugin v0.2
  * https://github.com/riga/jquery.polling
  *
  * Copyright 2012, Marcel Rieger
@@ -45,8 +45,9 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 		
 		// add function
 		add = function() {
-			if ( arguments.length > 0 ) {
-				_callbacks = jQuery.merge( _callbacks, arguments );
+			var args = jQuery.makeArray( arguments );
+			if ( args.length ) {
+				_callbacks = jQuery.merge( _callbacks, args );
 				// autorun?
 				if ( _config.autoRun ) {
 					run();
@@ -61,7 +62,7 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 			if (!_isLocked) {
 				_isRunning = true;
 				var promises = [];
-				jQuery.each(_callbacks, function( i, callback ) {
+				jQuery.each( _callbacks, function( i, callback ) {
 					var result = callback();
 					promises.push( (result && result.promise) ? result.promise() : result );
 				});
@@ -153,21 +154,6 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 			return this;
 		},
 		
-		// _callbacks getter
-		callbacks = function() {
-			return _callbacks;
-		},
-		
-		// _notifications getter
-		notifications = function() {
-			return _notifications;
-		},
-		
-		// _config getter
-		config = function() {
-			return _config;
-		},
-		
 		// _counter getter
 		count = function() {
 			return _counter;
@@ -184,7 +170,6 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 		};
 		
 		self = {
-			// functions
 			setup: setup,
 			add: add,
 			run: run,
@@ -195,10 +180,6 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 			notify: notify,
 			disnotify: disnotify,
 			emptyNotify: emptyNotify,
-			// getter
-			callbacks: callbacks,
-			notifications: notifications,
-			config: config,
 			count: count,
 			locked: locked,
 			running: running
