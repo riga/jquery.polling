@@ -10,7 +10,7 @@
 
 var _polling = {};
 
-jQuery.Polling = function( /*String|Integer*/ id ) {
+jQuery.Polling = function( id ) {
 	
 	var self = id && _polling[ id ];
 	
@@ -38,7 +38,7 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 		_lockDeferred = jQuery.Deferred(),
 		
 		// setup function
-		setup = function( /*Object*/ __config ) {
+		setup = function( __config ) {
 			jQuery.extend( true, _config, __config );
 			return this;
 		},
@@ -108,7 +108,7 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 		},
 		
 		// lock function
-		lock = function( /*Function|jQuery.Callbacks*/ callback ) {
+		lock = function( callback ) {
 			callback = callback.fire || callback;
 			if ( !_isRunning || _timeout ) {
 				window.clearTimeout( _timeout );
@@ -126,7 +126,7 @@ jQuery.Polling = function( /*String|Integer*/ id ) {
 		},
 		
 		// onlock functiou
-		unlock = function( /*Boolean*/ resetCounter ) {
+		unlock = function( resetCounter ) {
 			_counter = resetCounter ? 0 : _counter;
 			_doLock = false;
 			if ( _isLocked ) {
