@@ -1,5 +1,5 @@
 /*!
- * jQuery Polling Plugin v0.3
+ * jQuery Polling Plugin v0.3.1
  * https://github.com/riga/jquery.polling
  *
  * Copyright 2014, Marcel Rieger
@@ -124,7 +124,7 @@
         return this;
       },
 
-      // onlock functiou
+      // unlock function
       unlock = function(resetCounter) {
         _counter = resetCounter ? 0 : _counter;
         _doLock = false;
@@ -147,8 +147,8 @@
         return this;
       },
 
-      // emptyNotify function
-      emptyNotify = function() {
+      // emptyNotifications function
+      emptyNotifications = function() {
         _notifications.empty();
         return this;
       },
@@ -178,7 +178,7 @@
         unlock: unlock,
         notify: notify,
         disnotify: disnotify,
-        emptyNotify: emptyNotify,
+        emptyNotifications: emptyNotifications,
         count: count,
         locked: locked,
         running: running
